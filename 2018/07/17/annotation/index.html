@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>annotation | 曾忆往昔</title>
+  <title>自定义注解 | 曾忆往昔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MinHow,MinHow's Blog" />
   
-  <meta name="description" content="JAVA中的注解以及自定义注解">
+  <meta name="description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta name="keywords" content="注解">
 <meta property="og:type" content="article">
-<meta property="og:title" content="annotation">
+<meta property="og:title" content="自定义注解">
 <meta property="og:url" content="http://hanusers.gitee.io/2018/07/17/annotation/index.html">
 <meta property="og:site_name" content="曾忆往昔">
-<meta property="og:description" content="JAVA中的注解以及自定义注解">
+<meta property="og:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hanusers.gitee.io/2018/07/17/annotation/zhujie.png">
-<meta property="og:updated_time" content="2018-07-17T09:54:16.963Z">
+<meta property="og:updated_time" content="2018-07-17T10:00:01.270Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="annotation">
-<meta name="twitter:description" content="JAVA中的注解以及自定义注解">
+<meta name="twitter:title" content="自定义注解">
+<meta name="twitter:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta name="twitter:image" content="http://hanusers.gitee.io/2018/07/17/annotation/zhujie.png">
   
   
@@ -119,7 +119,7 @@
         
   
     <h1 class="post-title" itemprop="name">
-      annotation
+      自定义注解
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -143,11 +143,26 @@
             
             <h3 id="JAVA中的注解以及自定义注解"><a href="#JAVA中的注解以及自定义注解" class="headerlink" title="JAVA中的注解以及自定义注解"></a>JAVA中的注解以及自定义注解</h3><hr>
 <p><img src="/2018/07/17/annotation/zhujie.png" alt="注解"></p>
+<ul>
+<li>什么是注解?</li>
+<li>注解的用户?</li>
+<li>注解的原理?</li>
+<li>元注解?</li>
+<li>常见标准的Annotation?</li>
+<li>自定义注解?</li>
+<li>自定义注解实例?</li>
+</ul>
+<p><strong>百度百科</strong></p>
+<blockquote>
+<blockquote>
+<p>注解基础知识点<br>   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。<br>   作用分类：<br>   ①编写文档：通过代码里标识的元数据生成文档【生成文档doc文档】<br>   ② 代码分析：通过代码里标识的元数据对代码进行分析【使用反射】<br>   ③编译检查：通过代码里标识的元数据让编译器能够实现基本的编译检查【Override】<br><strong>JAVA注解</strong><br>Annotation(注解)是JDK1.5及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。<br>注解是以‘@注解名’在代码中存在的，根据注解参数的个数，我们可以将注解分为：标记注解、单值注解、完整注解三类。<br>它们都不会直接影响到程序的语义，只是作为注解（标识）存在，我们可以通过反射机制编程实现对这些元数据（用来描述数据的数据）的访问。<br>另外，你可以在编译时选择代码里的注解是否只存在于源代码级，或者它也能在class文件、或者运行时中出现（SOURCE/CLASS/RUNTIME）。</p>
+</blockquote>
+</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月17日 17:54</p>
-        <p>原始链接： <a class="post-url" href="/2018/07/17/annotation/" title="annotation">http://hanusers.gitee.io/2018/07/17/annotation/</a></p>
+        <p>最后更新： 2018年07月17日 18:00</p>
+        <p>原始链接： <a class="post-url" href="/2018/07/17/annotation/" title="自定义注解">http://hanusers.gitee.io/2018/07/17/annotation/</a></p>
         <footer>
             <a href="http://hanusers.gitee.io">
                 <img src="/images/logo.png" alt="曹晗">
@@ -204,7 +219,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hanusers.gitee.io/2018/07/17/annotation/&title=《annotation》 — 曾忆往昔&pic=img/zhujie.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hanusers.gitee.io/2018/07/17/annotation/&title=《自定义注解》 — 曾忆往昔&pic=img/zhujie.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -214,7 +229,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hanusers.gitee.io/2018/07/17/annotation/&title=《annotation》 — 曾忆往昔&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hanusers.gitee.io/2018/07/17/annotation/&title=《自定义注解》 — 曾忆往昔&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -224,7 +239,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《annotation》 — 曾忆往昔&url=http://hanusers.gitee.io/2018/07/17/annotation/&via=http://hanusers.gitee.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《自定义注解》 — 曾忆往昔&url=http://hanusers.gitee.io/2018/07/17/annotation/&via=http://hanusers.gitee.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
