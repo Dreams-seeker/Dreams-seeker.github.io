@@ -8,19 +8,19 @@
   
     <meta name="keywords" content="MinHow,MinHow's Blog" />
   
-  <meta name="description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
+  <meta name="description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用处? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta name="keywords" content="注解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义注解">
 <meta property="og:url" content="http://hanusers.gitee.io/2018/07/17/annotation/index.html">
 <meta property="og:site_name" content="曾忆往昔">
-<meta property="og:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
+<meta property="og:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用处? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://hanusers.gitee.io/2018/07/17/annotation/zhujie.png">
-<meta property="og:updated_time" content="2018-07-17T10:00:01.270Z">
+<meta property="og:updated_time" content="2018-07-19T07:24:37.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义注解">
-<meta name="twitter:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用户? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
+<meta name="twitter:description" content="JAVA中的注解以及自定义注解   什么是注解? 注解的用处? 注解的原理? 元注解? 常见标准的Annotation? 自定义注解? 自定义注解实例?  百度百科   注解基础知识点   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这">
 <meta name="twitter:image" content="http://hanusers.gitee.io/2018/07/17/annotation/zhujie.png">
   
   
@@ -155,11 +155,11 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="JAVA中的注解以及自定义注解"><a href="#JAVA中的注解以及自定义注解" class="headerlink" title="JAVA中的注解以及自定义注解"></a>JAVA中的注解以及自定义注解</h3><hr>
+            <h2 id="JAVA中的注解以及自定义注解"><a href="#JAVA中的注解以及自定义注解" class="headerlink" title="JAVA中的注解以及自定义注解"></a>JAVA中的注解以及自定义注解</h2><hr>
 <p><img src="/2018/07/17/annotation/zhujie.png" alt="注解"></p>
 <ul>
 <li>什么是注解?</li>
-<li>注解的用户?</li>
+<li>注解的用处?</li>
 <li>注解的原理?</li>
 <li>元注解?</li>
 <li>常见标准的Annotation?</li>
@@ -169,13 +169,61 @@
 <p><strong>百度百科</strong></p>
 <blockquote>
 <blockquote>
-<p>注解基础知识点<br>   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。<br>   作用分类：<br>   ①编写文档：通过代码里标识的元数据生成文档【生成文档doc文档】<br>   ② 代码分析：通过代码里标识的元数据对代码进行分析【使用反射】<br>   ③编译检查：通过代码里标识的元数据让编译器能够实现基本的编译检查【Override】<br><strong>JAVA注解</strong><br>Annotation(注解)是JDK1.5及以后版本引入的。它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。<br>注解是以‘@注解名’在代码中存在的，根据注解参数的个数，我们可以将注解分为：标记注解、单值注解、完整注解三类。<br>它们都不会直接影响到程序的语义，只是作为注解（标识）存在，我们可以通过反射机制编程实现对这些元数据（用来描述数据的数据）的访问。<br>另外，你可以在编译时选择代码里的注解是否只存在于源代码级，或者它也能在class文件、或者运行时中出现（SOURCE/CLASS/RUNTIME）。</p>
+<p>注解基础知识点<br>   定义：注解（Annotation），也叫元数据。一种代码级别的说明。它是JDK1.5及以后版本引入的一个特性，与类、接口、枚举是在同一个层次。它可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明，注释。<br>   作用分类：<br>   ①编写文档：通过代码里标识的元数据生成文档【生成文档doc文档】<br>   ② 代码分析：通过代码里标识的元数据对代码进行分析【使用反射】<br>   ③编译检查：通过代码里标识的元数据让编译器能够实现基本的编译检查【Override】</p>
 </blockquote>
 </blockquote>
+<h3 id="一、什么是注解"><a href="#一、什么是注解" class="headerlink" title="一、什么是注解?"></a>一、什么是注解?</h3><p><strong>JAVA注解</strong></p>
+<ul>
+<li><p>Annotation(注解)是 <strong><font color="#0099ff" size="3" face="黑体">JDK1.5</font></strong> 及以后版本引入的。中它可以用于创建文档，跟踪代码中的依赖性，甚至执行基本编译时检查。<br>注解是以‘@注解名’在代码中存在的，根据注解参数的个数，我们可以将注解分为：标记注解、单值注解、完整注解三类。<br>它们都不会直接影响到程序的语义，只是作为注解（标识）存在，我们可以通过反射机制编程实现对这些元数据（用来描述数据的数据）的访问。<br>另外，你可以在编译时选择代码里的注解是否只存在于源代码级，或者它也能在class文件、或者运行时中出现（SOURCE/CLASS/RUNTIME）。</p>
+</li>
+<li><p>Annotation是JAVA5开始引入的一种新特征,中文名称叫做注解。它提供了一种安全的类似似注释的机制，用于将任何的信息或元数据（metadata）与程序元素（类、方法、成员变量等）<br>进行关联，为程序的元素（类、方法、成员变量）加上更直观更明了的说明，这些说明信息与程序的业务逻辑无关，并且供指定的工具或框架使用，Annontation像一种修饰符一样，应用于包、类型、构造方法，<br>方法、成员变量、参数及本地变量的声明语句中。<br>Java注解是附加在代码中的一些元信息，用于一些工具在编译、运行时进行解析和使用，起到说明、配置的功能，注解不会也不能影响代码的实际逻辑仅仅起到辅助的作用。包含java.lang.annotation包中。</p>
+</li>
+</ul>
+<h3 id="二、注解的用处？"><a href="#二、注解的用处？" class="headerlink" title="二、注解的用处？"></a>二、注解的用处？</h3><p> 1 .生成文档，这是最常见的，也是java最早提供的注解。常用的有@param @return等。<br> 2 .跟踪代码依赖性，实现替代配置文件功能，比如Dagger2 依赖注入，未来java开发，将大量注解配置，具有很大好处。<br> 3 .在编译时进行格式检查。如@override 放在方法前，如果你这个方法并不是覆盖了超类方法，则编译时就能检查出。</p>
+<h3 id="三、注解的原理"><a href="#三、注解的原理" class="headerlink" title="三、注解的原理?"></a>三、注解的原理?</h3><ul>
+<li>注解的本质是一个继承了Annotation的特殊接口，其具体实现类是JAVA运行时生成的动态代理类。而我们通过反射获取注解时，返回的是Java运行时生成的动态代理对象$Proxy1。通过代理对象调用自定义注解（接口）的方法，<br>会最终调用AnnotationInvocationHandler的invoke方法。该方法会从memberValues这个Map中索引出对应的值。而memberValues的来源是Java常量池。</li>
+</ul>
+<h3 id="四、元注解"><a href="#四、元注解" class="headerlink" title="四、元注解?"></a>四、元注解?</h3><ul>
+<li>java.lang.annotation提供了四种元注解，专门注解其他的注解（在自定义注解的时候，需要用到元注解）：<br><strong>@Documented  注解是否将包含在javaDoc中</strong><br><strong>@Retention –什么时候使用该注解</strong><br><strong>@Target –注解用于什么地方</strong><br><strong>@Inherited – 是否允许子类继承该注解</strong></li>
+</ul>
+<pre><code>1.）@Retention– 定义该注解的生命周期
+ ●   RetentionPolicy.SOURCE : 在编译阶段丢弃。这些注解在编译结束之后就不再有任何意义，所以它们不会写入字节码。@Override, @SuppressWarnings都属于这类注解。
+ ●   RetentionPolicy.CLASS : 在类加载的时候丢弃。在字节码文件的处理中有用。注解默认使用这种方式
+ ●   RetentionPolicy.RUNTIME : 始终不会丢弃，运行期也保留该注解，因此可以使用反射机制读取该注解的信息。我们自定义的注解通常使用这种方式。
 
+ 2.）Target – 表示该注解用于什么地方。默认值为任何元素，表示该注解用于什么地方。可用的ElementType参数包括
+ ● ElementType.CONSTRUCTOR:用于描述构造器
+ ● ElementType.FIELD:成员变量、对象、属性（包括enum实例）
+ ● ElementType.LOCAL_VARIABLE:用于描述局部变量
+ ● ElementType.METHOD:用于描述方法
+ ● ElementType.PACKAGE:用于描述包
+ ● ElementType.PARAMETER:用于描述参数
+ ● ElementType.TYPE:用于描述类、接口(包括注解类型) 或enum声明
+
+3.)@Documented–一个简单的Annotations标记注解，表示是否将注解信息添加在java文档中。
+
+4.)@Inherited – 定义该注释和子类的关系
+    @Inherited 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。
+</code></pre><h3 id="五、常见标准的Annotation："><a href="#五、常见标准的Annotation：" class="headerlink" title="五、常见标准的Annotation："></a>五、常见标准的Annotation：</h3><pre><code>1.）Override
+    java.lang.Override是一个标记类型注解，它被用作标注方法。它说明了被标注的方法重载了父类的方法，起到了断言的作用。如果我们使用了这种注解在一个没有覆盖父类方法的方法时，java编译器将以一个编译错误来警示。
+2.）Deprecated
+   Deprecated也是一种标记类型注解。当一个类型或者类型成员使用@Deprecated修饰的话，编译器将不鼓励使用这个被标注的程序元素。所以使用这种修饰具有一定的“延续性”：如果我们在代码中通过继承或者覆盖的方式使用了这个过时的类型或者成员，
+    虽然继承或者覆盖后的类型或者成员并不是被声明为@Deprecated，但编译器仍然要报警。
+3.)SuppressWarnings
+   SuppressWarning不是一个标记类型注解。它有一个类型为String[]的成员，这个成员的值为被禁止的警告名。对于javac编译器来讲，被-Xlint选项有效的警告名也同样对@SuppressWarings有效，同时编译器忽略掉无法识别的警告名。
+   @SuppressWarnings(&quot;unchecked&quot;)
+</code></pre><h3 id="六、自定义注解"><a href="#六、自定义注解" class="headerlink" title="六、自定义注解?"></a>六、自定义注解?</h3><pre><code>自定义注解类编写的一些规则:
+  1. Annotation型定义为@interface, 所有的Annotation会自动继承java.lang.Annotation这一接口,并且不能再去继承别的类或是接口.
+  2. 参数成员只能用public或默认(default)这两个访问权修饰
+  3. 参数成员只能用基本类型byte,short,char,int,long,float,double,boolean八种基本数据类型和String、Enum、Class、annotations等数据类型,以及这一些类型的数组.
+  4. 要获取类方法和字段的注解信息，必须通过Java的反射技术来获取 Annotation对象,因为你除此之外没有别的获取注解对象的方法
+  5. 注解也可以没有定义成员, 不过这样注解就没啥用了
+PS:自定义注解需要使用到元注解
+</code></pre><h3 id="七、自定义注解实例？"><a href="#七、自定义注解实例？" class="headerlink" title="七、自定义注解实例？"></a>七、自定义注解实例？</h3><pre><code>FruitName:java
+</code></pre>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月17日 18:00</p>
+        <p>最后更新： 2018年07月19日 15:24</p>
         <p>原始链接： <a class="post-url" href="/2018/07/17/annotation/" title="自定义注解">http://hanusers.gitee.io/2018/07/17/annotation/</a></p>
         <footer>
             <a href="http://hanusers.gitee.io">
@@ -293,7 +341,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JAVA中的注解以及自定义注解"><span class="post-toc-text">JAVA中的注解以及自定义注解</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JAVA中的注解以及自定义注解"><span class="post-toc-text">JAVA中的注解以及自定义注解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、什么是注解"><span class="post-toc-text">一、什么是注解?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、注解的用处？"><span class="post-toc-text">二、注解的用处？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、注解的原理"><span class="post-toc-text">三、注解的原理?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、元注解"><span class="post-toc-text">四、元注解?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、常见标准的Annotation："><span class="post-toc-text">五、常见标准的Annotation：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、自定义注解"><span class="post-toc-text">六、自定义注解?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七、自定义注解实例？"><span class="post-toc-text">七、自定义注解实例？</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
