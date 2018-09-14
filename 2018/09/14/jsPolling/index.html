@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于我 | 曾忆往昔</title>
+  <title>JS的异步事件和轮询机制 | 曾忆往昔</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="MinHow,MinHow's Blog" />
   
-  <meta name="description" content="一只不断学习的IT人，欢迎分享知识。作者:曹晗QQ号:1525629557 名人名言 没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝试才是信仰。不敢做，梦想就会变成幻想。前行的路，不怕万人阻挡，只怕自己投降；人生的帆，不怕狂风巨浪，只怕自己没胆量！天道酬勤，人道酬善，商道酬信，业道酬精！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://hanusers.gitee.io/about/index.html">
+  <meta name="description" content="一、JS为何是单线程的？  JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。（在JAVA和c#中的异步均是通过多线程实现的，没有循环队列一说，直接在子线程中完成相关的操作） JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM">
+<meta name="keywords" content="JS的异步事件和轮询机制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS的异步事件和轮询机制">
+<meta property="og:url" content="http://hanusers.gitee.io/2018/09/14/jsPolling/index.html">
 <meta property="og:site_name" content="曾忆往昔">
-<meta property="og:description" content="一只不断学习的IT人，欢迎分享知识。作者:曹晗QQ号:1525629557 名人名言 没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝试才是信仰。不敢做，梦想就会变成幻想。前行的路，不怕万人阻挡，只怕自己投降；人生的帆，不怕狂风巨浪，只怕自己没胆量！天道酬勤，人道酬善，商道酬信，业道酬精！">
+<meta property="og:description" content="一、JS为何是单线程的？  JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。（在JAVA和c#中的异步均是通过多线程实现的，没有循环队列一说，直接在子线程中完成相关的操作） JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-01T12:16:45.016Z">
+<meta property="og:image" content="http://hanusers.gitee.io/2018/09/14/jsPolling/js001.png">
+<meta property="og:updated_time" content="2018-09-14T07:32:16.045Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="一只不断学习的IT人，欢迎分享知识。作者:曹晗QQ号:1525629557 名人名言 没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝试才是信仰。不敢做，梦想就会变成幻想。前行的路，不怕万人阻挡，只怕自己投降；人生的帆，不怕狂风巨浪，只怕自己没胆量！天道酬勤，人道酬善，商道酬信，业道酬精！">
+<meta name="twitter:title" content="JS的异步事件和轮询机制">
+<meta name="twitter:description" content="一、JS为何是单线程的？  JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。（在JAVA和c#中的异步均是通过多线程实现的，没有循环队列一说，直接在子线程中完成相关的操作） JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM">
+<meta name="twitter:image" content="http://hanusers.gitee.io/2018/09/14/jsPolling/js001.png">
   
   
     <link rel="icon" href="/title.png">
@@ -123,20 +126,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-jsPolling" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      关于我
+      JS的异步事件和轮询机制
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-03-23
+          <i class="fa fa-calendar"></i>  2018-09-14
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -149,18 +152,23 @@
           
       </header>
     
-    <div class="article-entry " itemprop="articleBody">
+    <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>一只不断学习的IT人，欢迎分享知识。<br>作者:曹晗<br>QQ号:1525629557</p>
-<h1 id="名人名言"><a href="#名人名言" class="headerlink" title="名人名言"></a>名人名言</h1><blockquote>
-<p>没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；<br>有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝试才是信仰。不敢做，梦想就会变成幻想。前行的路，不怕万人阻挡，<br>只怕自己投降；人生的帆，不怕狂风巨浪，只怕自己没胆量！天道酬勤，人道酬善，商道酬信，业道酬精！<br>                                                                                    –习近平</p>
-<h1 id="没有人会为你的贫穷负"><a href="#没有人会为你的贫穷负" class="headerlink" title="没有人会为你的贫穷负"></a>没有人会为你的贫穷负</h1></blockquote>
+            <ul>
+<li><p>一、JS为何是单线程的？<br><img src="/2018/09/14/jsPolling/js001.png" alt=""></p>
+</li>
+<li><p>JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。（在JAVA和c#中的异步均是通过多线程实现的，没有循环队列一说，直接在子线程中完成相关的操作） JavaScript的单线程，与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动，以及操作DOM。</p>
+</li>
+<li>这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</li>
+<li>所以，为了避免复杂性，从一诞生，JavaScript就是单线程，这已经成了这门语言的核心特征，将来也不会改变。</li>
+<li>为了利用多核CPU的计算能力，HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</li>
+</ul>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年04月01日 20:16</p>
-        <p>原始链接： <a class="post-url" href="/about/index.html" title="关于我">http://hanusers.gitee.io/about/index.html</a></p>
+        <p>最后更新： 2018年09月14日 15:32</p>
+        <p>原始链接： <a class="post-url" href="/2018/09/14/jsPolling/" title="JS的异步事件和轮询机制">http://hanusers.gitee.io/2018/09/14/jsPolling/</a></p>
         <footer>
             <a href="http://hanusers.gitee.io">
                 <img src="/title.png" alt="曹晗">
@@ -217,7 +225,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hanusers.gitee.io/about/&title=《关于我》 — 曾忆往昔&pic=http://hanusers.gitee.io/title.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hanusers.gitee.io/2018/09/14/jsPolling/&title=《JS的异步事件和轮询机制》 — 曾忆往昔&pic=img/js001.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -227,22 +235,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hanusers.gitee.io/about/&title=《关于我》 — 曾忆往昔&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hanusers.gitee.io/2018/09/14/jsPolling/&title=《JS的异步事件和轮询机制》 — 曾忆往昔&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hanusers.gitee.io/about/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hanusers.gitee.io/2018/09/14/jsPolling/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于我》 — 曾忆往昔&url=http://hanusers.gitee.io/about/&via=http://hanusers.gitee.io" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS的异步事件和轮询机制》 — 曾忆往昔&url=http://hanusers.gitee.io/2018/09/14/jsPolling/&via=http://hanusers.gitee.io" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hanusers.gitee.io/about/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hanusers.gitee.io/2018/09/14/jsPolling/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -252,7 +260,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hanusers.gitee.io/about/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://hanusers.gitee.io/2018/09/14/jsPolling/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -261,6 +269,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/JS的异步事件和轮询机制/" class="color3">JS的异步事件和轮询机制</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -268,12 +283,16 @@
 </article>
 
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#名人名言"><span class="post-toc-text">名人名言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#没有人会为你的贫穷负"><span class="post-toc-text">没有人会为你的贫穷负</span></a></li></ol>
-        </nav>
-    </aside>
-    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/17/annotation/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">自定义注解</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
 
 
 
