@@ -143,13 +143,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        关于我
+                        重构-改善既有代码的设计
                     </div>
                 </div>
             </div>
@@ -164,9 +164,15 @@
         <div class="card">
             <div class="card-content article-info">
                 
+                <div class="article-tag">
+                    
+                    <a href="http://hanusers.gitee.io/tags/重构/" target="_blank"><span class="chip bg-color">重构</span></a>
+                    
+                </div>
+                
                 <div class="author-info">
                     <span>
-                        <i class="fa fa-calendar fa-fw"></i>2018-03-23
+                        <i class="fa fa-calendar fa-fw"></i>2018-09-30
                     </span>
                     <span id="busuanzi_container_page_pv">
                      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
@@ -176,11 +182,14 @@
             <hr>
             <div class="card-content article-card-content">
                 <div id="articleContent">
-                    <p>一只不断学习的IT人，欢迎分享知识。<br>作者:曹晗<br>QQ号:1525629557</p>
-<h1 id="名人名言"><a href="#名人名言" class="headerlink" title="名人名言"></a>名人名言</h1><blockquote>
-<p>没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；<br>有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝试才是信仰。不敢做，梦想就会变成幻想。前行的路，不怕万人阻挡，<br>只怕自己投降；人生的帆，不怕狂风巨浪，只怕自己没胆量！天道酬勤，人道酬善，商道酬信，业道酬精！<br>                                                                                    –习近平</p>
-</blockquote>
-<h1 id="没有人会为你的贫穷负"><a href="#没有人会为你的贫穷负" class="headerlink" title="没有人会为你的贫穷负"></a>没有人会为你的贫穷负</h1>
+                    <p> <strong> <div style="padding-left: 290px;"> <img src="/2018/09/30/Refactoring/0001.png" alt="重构设计"></div></strong></p>
+<h3 id="一、什么是重构"><a href="#一、什么是重构" class="headerlink" title="一、什么是重构?"></a>一、什么是重构?</h3><ul>
+<li><strong> <span style="color:red;font-size:20px;"><em>所谓重构</em></span></strong>（refactoring）是这样一个过程:在不改变代码外在行为的前提下,对代码做出修改,以改进程序的内部结构。重构是一种经千锤百炼形成的有条不紊的程序整理方法，可以最大<br>限度的减少整理过程中引入错误的几率。本质上说，重构就是在代码写好之后改进它的设计。</li>
+<li><strong> <span style="color:green;font-size:20px;"><em>“在代码写</em></span></strong>好之后改进它的设计”？这种说法有些奇怪。按照目前对软件开发的理解，我们相信应该先设计后编码：首先得有一个良好的设计，然后才能开发编码。但是，随着时间流逝，人们不断修改代码<br>于是根据原先设计所得的系统，整体结构逐渐衰弱。代码质量慢慢沉沦，编码工作从严谨的工程堕落为胡砍乱劈的随性行为。</li>
+<li><strong> <span style=" color:blue;font-size:20px;"><em> “重构正好”</em></span> </strong>与此相反,哪怕你手上有一个糟糕的设计，甚至是一堆混乱的代码，你也可以借由重构将它设计良好的代码，重构的每个步骤都很简单，甚至显的过于简单：你只需要把某个字段从一个类移到另一个类，<br>把某些代码从一个函数拉出来构成另一个函数，或是在继承体系中把某些代码推上推下就行了。但是，聚沙成塔，这些小小的累积起来就可以根本改善设计质量。这和一般常见的软件会慢慢腐烂”的观点恰恰相反。</li>
+<li><strong> <span style=" color:red;font-size:20px;"><em> 通过重构</em></span></strong>，你可以找到改变的平衡点。你会发现所谓设计不再是一切动作的前提，而是在整个开发过程中逐渐浮现出来。在系统构筑过程中，你可以学习如何强化设计，其间带来的互动可以让一个程序在开发过程中<br>持续保有良好的设计。</li>
+</ul>
+
                 </div>
                 <hr/>
 
@@ -199,7 +208,7 @@
                         <span class="reprint-tip">Reprint please specify: </span>
                         <a href="http://hanusers.gitee.io" class="b-link-green">曾忆往昔</a>
                         <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                        <a href="/about/index.html" class="b-link-green">关于我</a>
+                        <a href="/2018/09/30/Refactoring/" class="b-link-green">重构-改善既有代码的设计</a>
                     </p>
                 </div>
             </div>
@@ -239,22 +248,22 @@
         <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Current</div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2018/09/30/Refactoring/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="关于我">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="重构-改善既有代码的设计">
                         
-                        <span class="card-title">关于我</span>
+                        <span class="card-title">重构-改善既有代码的设计</span>
                     </div>
 
                     <div class="card-content article-content">
-                        <div class="summary">一只不断学习的IT人，欢迎分享知识。作者:曹晗QQ号:1525629557
-名人名言
-没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝</div>
+                        <div class="summary">   
+一、什么是重构?
+ 所谓重构（refactoring）是这样一个过程:在不改变代码外在行为的前提下,对代码做出修改,以改进程序的内部结构。重构是一种经千锤百炼形成的有条不紊的程序整理方法，可以最大限度的减少整理过程中引入错误的几率。</div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2018-03-23
+                                <i class="fa fa-calendar fa-fw"></i>2018-09-30
                             </span>
                             <span class="publish-author">
                                 <i class="fa fa-user fa-fw"></i>
@@ -266,30 +275,37 @@
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="http://hanusers.gitee.io/tags/重构/"><span class="chip bg-color">重构</span></a>
+                        
+                    </div>
+                    
                 </a>
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Current</div>
+            <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2018/09/14/jsPolling/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="关于我">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JS的异步事件和轮询机制">
                         
-                        <span class="card-title">关于我</span>
+                        <span class="card-title">JS的异步事件和轮询机制</span>
                     </div>
-
                     <div class="card-content article-content">
-                        <div class="summary">一只不断学习的IT人，欢迎分享知识。作者:曹晗QQ号:1525629557
-名人名言
-没有人会为你的贫穷负责,却有人为你的富有而喝彩!所以不要活在别人的嘴巴里、做好自己！有路，就大胆的去走；有梦，就大胆的飞翔；若要成功，就要大胆去闯。大胆尝</div>
+                        <div class="summary">
+                            一、JS为何是单线程的？
+
+JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript不能有多个线程呢？这样能提高效率啊。（在JAVA和c#中的异步均是通过多线程实现的，没有循环队列一说
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-calendar fa-fw"></i>2018-03-23
+                                <i class="fa fa-calendar fa-fw"></i>2018-09-14
                             </span>
                             <span class="publish-author">
                                 <i class="fa fa-user fa-fw"></i>
@@ -299,7 +315,12 @@
                             </span>
                         </div>
                     </div>
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="http://hanusers.gitee.io/tags/JS的异步事件和轮询机制/"><span class="chip bg-color">JS的异步事件和轮询机制</span></a>
+                        
+                    </div>
                     
                 </a>
             </div>
