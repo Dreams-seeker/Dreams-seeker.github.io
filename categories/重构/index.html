@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Archives, 曾忆往昔">
-    <meta name="description" content="Archives | 曾忆往昔">
+    <meta name="keywords" content="Category: 重构, 曾忆往昔">
+    <meta name="description" content="Category: 重构 | 曾忆往昔">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Archives | 曾忆往昔</title>
+    <title>Category: 重构 | 曾忆往昔</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -246,13 +246,6 @@
     </nav>
 </header>
 
-<style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
-</style>
-
 <div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
@@ -285,44 +278,39 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-    
-    
-
-
-
-<div class="container recommend">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
-            
-            <div class="title">Recommended Posts</div>
-            
-            <div class="row">
+            <div class="tag-title center-align">Post Categories</div>
+            <div class="tag-chips">
                 
                 
                 
-                <div class="col s12" >
-                    <div class="post-card" style="background-image: url('/img/springboot.png')">
-                        <div class="post-body">
-                            <div class="post-categories">
-                                
-                                <a href="/categories/Java/" class="category" target="_blank">Java</a>
-                                
-                            </div>
-                            <a href="/2018/07/16/springboot/" target="_blank">
-                                <h3 class="post-title">SpringBoot</h3>
-                            </a>
-                            <p class="post-description">
-
-SpringBoot概述
-
-Build Anything with Spring Boot：Spring Boot is the starting point for building all Spring-based applicat</p>
-                            <a href="/2018/07/16/springboot/" target="_blank"
-                                    class="read-more btn waves-effect waves-light" style="background-color: #f44336">
-                                <i class="icon fa fa-eye fa-fw"></i>Read more
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <a href="/categories/Java/" title="Java: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Java
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/JavaScript/" title="JavaScript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">JavaScript
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/重构/" title="重构: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #D5F5E3;">重构
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
                 
             </div>
@@ -330,19 +318,15 @@ Build Anything with Spring Boot：Spring Boot is the starting point for building
     </div>
 </div>
 
-
     
 
-    
-
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/09/30/Refactoring/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="重构-改善既有代码的设计">
@@ -350,7 +334,6 @@ Build Anything with Spring Boot：Spring Boot is the starting point for building
                             <span class="card-title">重构-改善既有代码的设计</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">   
 一、什么是重构?
@@ -384,202 +367,9 @@ Build Anything with Spring Boot：Spring Boot is the starting point for building
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/09/14/jsPolling/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="JS的异步事件和轮询机制">
-                            
-                            <span class="card-title">JS的异步事件和轮询机制</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">一、JS为何是单线程的？
-
-JavaScript语言的一大特点就是单线程，也就是说，同一个时间只能做一件事。那么，为什么JavaScript</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/JS的异步事件和轮询机制/" target="_blank">
-                            <span class="chip bg-color">JS的异步事件和轮询机制</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/07/17/annotation/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="自定义注解">
-                            
-                            <span class="card-title">自定义注解</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">JAVA中的注解以及自定义注解
-
-
-什么是注解?
-注解的用处?
-注解的原理?
-元注解?
-常见标准的Annotation?
-自定义注解?
-自定</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/注解/" target="_blank">
-                            <span class="chip bg-color">注解</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/07/16/springboot/">
-                        <div class="card-image">
-                            
-                            <img src="/img/springboot.png" class="responsive-img" alt="SpringBoot">
-                            
-                            <span class="card-title">SpringBoot</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-
-SpringBoot概述
-
-Build Anything with Spring Boot：Spring Boot is the sta</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/SpringBoot/" target="_blank">
-                            <span class="chip bg-color">SpringBoot</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/07/12/20180712001/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="介绍Spring">
-                            
-                            <span class="card-title">介绍Spring</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">
-</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/First/" target="_blank">
-                            <span class="chip bg-color">First</span>
-                        </a>
-                        
-                        <a href="/tags/Second/" target="_blank">
-                            <span class="chip bg-color">Second</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
-
 </main>
-
 
 
 <footer class="page-footer bg-color">
