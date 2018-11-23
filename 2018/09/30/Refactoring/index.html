@@ -187,7 +187,6 @@
 
             </div>
         </div>
-
         
         <style>
     .nav-transparent .github-corner {
@@ -362,6 +361,13 @@
                 <span class="post-date">
                     <i class="fa fa-clock-o fa-fw"></i>2018-09-30
                 </span>
+
+            </div>
+            <!--排版当前文章总阅读量-->
+            <div style="float: right">
+                <span id="busuanzi_container_page_pv">
+                  本文总阅读量<span id="busuanzi_value_page_pv" style="color: #0f9d58;font-size: 20px"></span>次
+                </span>
             </div>
         </div>
         <hr>
@@ -404,7 +410,27 @@
     
 
     
+    <!--来必力评论系统-->
+    
+    <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zODAxOS8xNDU0OQ==">
+    <script type="text/javascript">
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
 
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+    </script>
+    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+    
     
 
     
@@ -576,32 +602,17 @@ JavaScript语言的一大特点就是单线程，也就是说，同一个时间�
     });
 </script>
     
-    
-    <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC8zODAxOS8xNDU0OQ==">
-    <script type="text/javascript">
-        (function(d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
 
-            if (typeof LivereTower === 'function') { return; }
-
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
-
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-    </script>
-    <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-    
 </main>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <footer class="page-footer bg-color">
     <div class="container row center-align">
-        <div> <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></div>
+        <div>
+            <!--<span id="busuanzi_container_site_uv">本站总访问量<span id="busuanzi_value_site_uv"></span>次</span>-->
+            <span id="busuanzi_container_site_uv">本站访客数:<span id="busuanzi_value_site_uv" style="color: green;font-size: 20px;"></span>人次</span>
+            <!--本站总访问量<span id="busuanzi_value_site_pv"></span>次本站访客数<span id="busuanzi_value_site_uv"></span>人次-->
+        </div>
     </div>
 
     <div class="container row center-align">
