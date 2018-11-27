@@ -3,6 +3,46 @@
   
     
     <entry>
+      <title>Git初识</title>
+      <link href="/2018/11/27/Gita/"/>
+      <url>/2018/11/27/Gita/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>BigData</title>
+      <link href="/2018/11/27/BigData/"/>
+      <url>/2018/11/27/BigData/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>重构-改善既有代码的设计</title>
       <link href="/2018/09/30/Refactoring/"/>
       <url>/2018/09/30/Refactoring/</url>
@@ -99,7 +139,7 @@
       <link href="/2018/07/12/20180712001/"/>
       <url>/2018/07/12/20180712001/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一-什么是Spring"><a href="#一-什么是Spring" class="headerlink" title="一. 什么是Spring?"></a>一. 什么是Spring?</h2><p>   Spring是一个框架,是一个j2EE应用程序框架,是轻量级的IOC和AOP的容器框架,主要是针对JavaBean的生命周期进行管理的轻量级容器,可以单独使用,<br>   也可以与Struts框架,mybatis等ORM框架使用.</p><h2 id="二-Spring架构概述"><a href="#二-Spring架构概述" class="headerlink" title="二.Spring架构概述."></a>二.Spring架构概述.</h2><p>   <img src="/img/spring4.png" alt="spring框架概述"></p><ul><li><p>上图就是spring框架的整体概述,包含框架的模块组成部分,下面要聊聊关于Spring的那些事. spring的核心问题,只有掌握了这些核心原理,才能在工作中会使用spring框架,<br>并正确根据接口需求配置spring框架.</p><h3 id="1-IOC"><a href="#1-IOC" class="headerlink" title="1)IOC"></a>1)IOC</h3><ul><li><p>IOC(Inversio of Control) 控制反转,对象创建责任的反转,把创建对象的控制权由人转变为工厂.在Sping中BeanFactory是IOC容器的的核心接口,负责实例化,<br>定位,配置应用程序中的对象及建立这些对象间的依赖,XMLBeanFactory实现BeanFactory接口,通过获取xml配置文件数据,组成应用对象及对象间的依赖关系.</p><p>Spring有三种注入方式,一种是set注入,一种是接口注入,另一种是构造方法注入.</p><h3 id="2-AOP"><a href="#2-AOP" class="headerlink" title="2)AOP"></a>2)AOP</h3></li><li><p>Aop是纵向的编程,比如: 业务1和业务2都需要一个相同的操作,与其往每个业务中都添加同样的代码.不如写一遍代码,让两个业务共同使用这段代码.</p><p>spring中面向切面编程实现有两种方式,一种是动态代理,一种是CGLIB 动态代理必须提供接口,而CGLiB实现是有继承.</p><h2 id="三-为什么使用Spring框架"><a href="#三-为什么使用Spring框架" class="headerlink" title="三.为什么使用Spring框架!"></a>三.为什么使用Spring框架!</h2><p>在不使用spring框架之前,我们的service层中要使用到层的对象,不得不在service层中new一个对象.如下:<br><code>`</code><br>//dao层对象<br>public class UserDao{<br>public insert(User user){}<br>} </p></li></ul><p>//service层对象<br>public classUserService{<br> public void insert(User user){<br>   UserDao userDao=new UserDao();<br>   userDao.insert(user);<br> }<br>}</p><pre><code>以上代码存的问题: 层与层之间的依赖.使用框架后:</code></pre><p>  //dao层对象<br>  public class UserDao{</p><pre><code>  public void insert(User user){}</code></pre><p>  }</p><p>  //service层对象<br>  public classUserService{</p><pre><code> @Autowird(通过注解告诉工厂创建bean对象) private UserDao userDao; public void insert(User user){   userDao.insert(user); } //getUserdao public UserDao getUserDao(){   return userDao; } public void setUserdao(UserDao userDao){ this.userDao=userDao; }</code></pre><p>  }<br><code>`</code><br>service层要用dao层对象需要配置到xml配置文件中,至于对象是怎么创建的,关系是怎么组合的都交给了spring框架去实现的.(框架其实是利用了反射的原理创建的对象).</p></li></ul><h2 id="四-框架优点"><a href="#四-框架优点" class="headerlink" title="四. 框架优点."></a>四. 框架优点.</h2><ol><li>轻量级的框架没有侵入性.</li><li>使用ioc容器更加容易组合对象直接间关系,面向接口编程.降低耦合.</li><li>Aop可以更加容易的进行功能扩展,遵循OCP开发原则.</li><li>创建对象默认是单例的,不需要再单独使用单例模式进行处理.</li></ol><h2 id="五-缺点"><a href="#五-缺点" class="headerlink" title="五. 缺点"></a>五. 缺点</h2><ul><li>业务功能依赖spring特有的功能,依赖与spring环境.</li></ul>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="一-什么是Spring"><a href="#一-什么是Spring" class="headerlink" title="一. 什么是Spring?"></a>一. 什么是Spring?</h2><p>   Spring是一个框架,是一个j2EE应用程序框架,是轻量级的IOC和AOP的容器框架,主要是针对JavaBean的生命周期进行管理的轻量级容器,可以单独使用,<br>   也可以与Struts框架,mybatis等ORM框架使用.</p><h2 id="二-Spring架构概述"><a href="#二-Spring架构概述" class="headerlink" title="二.Spring架构概述."></a>二.Spring架构概述.</h2><p>   <img src="/img/spring4.png" alt="spring框架概述"></p><ul><li><p>上图就是spring框架的整体概述,包含框架的模块组成部分,下面要聊聊关于Spring的那些事. spring的核心问题,只有掌握了这些核心原理,才能在工作中会使用spring框架,<br>并正确根据接口需求配置spring框架.</p><h3 id="1-IOC"><a href="#1-IOC" class="headerlink" title="1)IOC"></a>1)IOC</h3><ul><li><p>IOC(Inversio of Control) 控制反转,对象创建责任的反转,把创建对象的控制权由人转变为工厂.在Sping中BeanFactory是IOC容器的的核心接口,负责实例化,<br>定位,配置应用程序中的对象及建立这些对象间的依赖,XMLBeanFactory实现BeanFactory接口,通过获取xml配置文件数据,组成应用对象及对象间的依赖关系.</p><p>Spring有三种注入方式,一种是set注入,一种是接口注入,另一种是构造方法注入.</p><h3 id="2-AOP"><a href="#2-AOP" class="headerlink" title="2)AOP"></a>2)AOP</h3></li><li><p>Aop是纵向的编程,比如: 业务1和业务2都需要一个相同的操作,与其往每个业务中都添加同样的代码.不如写一遍代码,让两个业务共同使用这段代码.</p><p>spring中面向切面编程实现有两种方式,一种是动态代理,一种是CGLIB 动态代理必须提供接口,而CGLiB实现是有继承.</p><h2 id="三-为什么使用Spring框架"><a href="#三-为什么使用Spring框架" class="headerlink" title="三.为什么使用Spring框架!"></a>三.为什么使用Spring框架!</h2><p>在不使用spring框架之前,我们的service层中要使用到层的对象,不得不在service层中new一个对象.如下:<br><code>`</code><br>//dao层对象<br>public class UserDao{<br>public insert(User user){}<br>} </p></li></ul><p>//service层对象<br>public classUserService{<br> public void insert(User user){<br>   UserDao userDao=new UserDao();<br>   userDao.insert(user);<br> }<br>}</p><pre><code>以上代码存的问题: 层与层之间的依赖.使用框架后:</code></pre><p>  //dao层对象<br>  public class UserDao{</p><pre><code>  public void insert(User user){}</code></pre><p>  }</p><p>  //service层对象<br>  public classUserService{</p><pre><code> @Autowird(通过注解告诉工厂创建bean对象) private UserDao userDao; public void insert(User user){   userDao.insert(user); } //getUserdao public UserDao getUserDao(){   return userDao; } public void setUserdao(UserDao userDao){ this.userDao=userDao; }</code></pre><p>  }<br><code>`</code><br>service层要用dao层对象需要配置到xml配置文件中,至于对象是怎么创建的,关系是怎么组合的都交给了spring框架去实现的.(框架其实是利用了反射的原理创建的对象).</p></li></ul><h2 id="四-框架优点"><a href="#四-框架优点" class="headerlink" title="四. 框架优点."></a>四. 框架优点.</h2><ol><li>轻量级的框架没有侵入性.</li><li>使用ioc容器更加容易组合对象直接间关系,面向接口编程.降低耦合.</li><li>Aop可以更加容易的进行功能扩展,遵循OCP开发原则.</li><li>创建对象默认是单例的,不需要再单独使用单例模式进行处理.</li></ol><h2 id="五-缺点"><a href="#五-缺点" class="headerlink" title="五. 缺点"></a>五. 缺点</h2><ul><li>业务功能依赖spring特有的功能,依赖与spring环境.<h2 id="六-整合"><a href="#六-整合" class="headerlink" title="六. 整合"></a>六. 整合</h2>Spring完整的提供了和ORM框架的整合方案和接口支持.</li></ul>]]></content>
       
       
       <categories>
