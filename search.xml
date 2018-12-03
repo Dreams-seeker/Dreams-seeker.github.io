@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>Oracle去重</title>
+      <link href="/2018/12/03/SQL001/"/>
+      <url>/2018/12/03/SQL001/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p> 最近在项目中遇到了Oracle去重的问题,这种问题其实在项目中是经常见到的.小编整理的去重的几种方法,做下记录:</p><h5 id="一-利用伪列和group-by删除重复数据"><a href="#一-利用伪列和group-by删除重复数据" class="headerlink" title="一. 利用伪列和group by删除重复数据."></a>一. 利用伪列和group by删除重复数据.</h5><pre><code>delete from wms_oms_inbound d where d.inboundkey in (select l.inboundkey                          from wms_oms_inbound l                         group by l.inboundkey                        having count(l.inboundkey) &gt; 5)   and rowid not in (select min(rowid)                       from wms_oms_inbound n                      group by n.inboundkey                     having count(n.inboundkey) &gt; 5)</code></pre><p>以上是删除表中多余的重复记录，重复记录是根据单个字段（inboundkey）来判断，只留有rowid最小的记录.利用了oracle数据库的伪列进行删除的.</p><h5 id="二-查找表中多余的重复记录（多个字段），不包含rowid最小的记录"><a href="#二-查找表中多余的重复记录（多个字段），不包含rowid最小的记录" class="headerlink" title="二. 查找表中多余的重复记录（多个字段），不包含rowid最小的记录"></a>二. 查找表中多余的重复记录（多个字段），不包含rowid最小的记录</h5>]]></content>
+      
+      
+      <categories>
+          
+          <category> Oracle数据库 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Oracle数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Git初识</title>
       <link href="/2018/11/27/Gita/"/>
       <url>/2018/11/27/Gita/</url>
@@ -24,7 +47,7 @@
       <link href="/2018/11/27/BigData/"/>
       <url>/2018/11/27/BigData/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h3>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="一-、大数据初识"><a href="#一-、大数据初识" class="headerlink" title="一 、大数据初识"></a>一 、大数据初识</h3><h4 id="大数据组件分类"><a href="#大数据组件分类" class="headerlink" title="大数据组件分类"></a>大数据组件分类</h4><pre><code>* ETL                 * 流式计算     *Flume、Sqoop         * Spark Streaming  * Nosql数据库          * 工作流     * HBase               * Oozie  * SQL on Hadoop       * 资源管理     * Hive、Phoenix       * Yarn、Zookeeper  * 内存计算             * 安全     * Spark               * Access、Kerbores  *消息队列              * 监控     * Kafka               * Ganglia</code></pre><p>学习资料</p><ul><li>Definitive Guide系列</li><li>In Action系列<br>推荐读物<br><strong> <img src="/img/hadoop.png" style="width:150px;height:150px;"><br><br> <img src="/img/hadoop2.png" style="width:150px;height:150px;"> </strong>  </li></ul>]]></content>
       
       
       <categories>

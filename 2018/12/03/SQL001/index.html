@@ -5,11 +5,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="BigData, 曾忆往昔">
-    <meta name="description" content="一 、大数据初识大数据组件分类* ETL                 * 流式计算
-     *Flume、Sqoop         * Spark Streaming
-  * Nosql数据库          * 工作流
-    ">
+    <meta name="keywords" content="Oracle去重, 曾忆往昔">
+    <meta name="description" content="简介 最近在项目中遇到了Oracle去重的问题,这种问题其实在项目中是经常见到的.小编整理的去重的几种方法,做下记录:
+一. 利用伪列和group by删除重复数据.delete from wms_oms_inbound d
+ where ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>BigData | 曾忆往昔</title>
+    <title>Oracle去重 | 曾忆往昔</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -250,13 +249,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/img/BIGDATA.png')">
+<div class="bg-cover post-cover" style="background-image: url('/img/timg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        BigData
+                        Oracle去重
                     </div>
                 </div>
             </div>
@@ -341,8 +340,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/大数据/" target="_blank">
-                    <span class="chip bg-color">大数据</span>
+                <a href="/tags/Oracle数据库/" target="_blank">
+                    <span class="chip bg-color">Oracle数据库</span>
                 </a>
                 
             </div>
@@ -352,15 +351,15 @@
                 <span class="post-cate">
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/大数据/" class="post-category" target="_blank">
-                        大数据
+                    <a href="/categories/Oracle数据库/" class="post-category" target="_blank">
+                        Oracle数据库
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-27
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-03
                 </span>
 
             </div>
@@ -374,23 +373,19 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一-、大数据初识"><a href="#一-、大数据初识" class="headerlink" title="一 、大数据初识"></a>一 、大数据初识</h3><h4 id="大数据组件分类"><a href="#大数据组件分类" class="headerlink" title="大数据组件分类"></a>大数据组件分类</h4><pre><code>* ETL                 * 流式计算
-     *Flume、Sqoop         * Spark Streaming
-  * Nosql数据库          * 工作流
-     * HBase               * Oozie
-  * SQL on Hadoop       * 资源管理
-     * Hive、Phoenix       * Yarn、Zookeeper
-  * 内存计算             * 安全
-     * Spark               * Access、Kerbores
-  *消息队列              * 监控
-     * Kafka               * Ganglia
-</code></pre><p>学习资料</p>
-<ul>
-<li>Definitive Guide系列</li>
-<li>In Action系列<br>推荐读物<br><strong> <img src="/img/hadoop.png" style="width:150px;height:150px;"><br><br> <img src="/img/hadoop2.png" style="width:150px;height:150px;"> 
-</strong>  </li>
-</ul>
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p> 最近在项目中遇到了Oracle去重的问题,这种问题其实在项目中是经常见到的.小编整理的去重的几种方法,做下记录:</p>
+<h5 id="一-利用伪列和group-by删除重复数据"><a href="#一-利用伪列和group-by删除重复数据" class="headerlink" title="一. 利用伪列和group by删除重复数据."></a>一. 利用伪列和group by删除重复数据.</h5><pre><code>delete from wms_oms_inbound d
+ where d.inboundkey in (select l.inboundkey
+                          from wms_oms_inbound l
+                         group by l.inboundkey
+                        having count(l.inboundkey) &gt; 5)
+   and rowid not in (select min(rowid)
+                       from wms_oms_inbound n
+                      group by n.inboundkey
+                     having count(n.inboundkey) &gt; 5)
 
+</code></pre><p>以上是删除表中多余的重复记录，重复记录是根据单个字段（inboundkey）来判断，只留有rowid最小的记录.利用了oracle数据库的伪列进行删除的.</p>
+<h5 id="二-查找表中多余的重复记录（多个字段），不包含rowid最小的记录"><a href="#二-查找表中多余的重复记录（多个字段），不包含rowid最小的记录" class="headerlink" title="二. 查找表中多余的重复记录（多个字段），不包含rowid最小的记录"></a>二. 查找表中多余的重复记录（多个字段），不包含rowid最小的记录</h5>
             </div>
             <hr/>
 
@@ -411,7 +406,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://hanusers.gitee.io" class="b-link-green">曾忆往昔</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/27/BigData/" class="b-link-green">BigData</a>
+                    <a href="/2018/12/03/SQL001/" class="b-link-green">Oracle去重</a>
                 </p>
             </div>
         </div>
@@ -448,8 +443,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2018/12/03/SQL001/">
+                    <div class="card-image">
+                        
+                        <img src="/img/timg.jpg" class="responsive-img" alt="Oracle去重">
+                        
+                        <span class="card-title">Oracle去重</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">简介 最近在项目中遇到了Oracle去重的问题,这种问题其实在项目中是经常见到的.小编整理的去重的几种方法,做下记录:
+一. 利用伪列和group by删除重复数据.delete from wms_oms_inbound d
+ where </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Oracle数据库/" class="post-category" target="_blank">
+                                    Oracle数据库
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Oracle数据库/" target="_blank">
+                        <span class="chip bg-color">Oracle数据库</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
                 <a href="/2018/11/27/Gita/">
                     <div class="card-image">
@@ -462,9 +502,9 @@
                 <div class="card-content article-content">
                     <div class="summary"></div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -485,51 +525,6 @@
             </div>
         </div>
         
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Next</div>
-            <div class="card">
-                <a href="/2018/09/30/Refactoring/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="重构-改善既有代码的设计">
-                        
-                        <span class="card-title">重构-改善既有代码的设计</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">   
-一、什么是重构?
- 所谓重构（refactoring）是这样一个过程:在不改变代码外在行为的前提下,对代码做出修改,以改进程序的内部结构。重构是一种经千锤百炼形成的有条不紊的程序整理方法，可以最大限度的减少整理过程中引入错误的几率。</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-30
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/重构/" class="post-category" target="_blank">
-                                    重构
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/重构/" target="_blank">
-                        <span class="chip bg-color">重构</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
     </div>
 </article>
 </div>
@@ -538,7 +533,7 @@
         <div class="toc-widget">
             <h4>TOC</h4>
             <div id="toc-content">
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-、大数据初识"><span class="post-toc-text">一 、大数据初识</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#大数据组件分类"><span class="post-toc-text">大数据组件分类</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-text">简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一-利用伪列和group-by删除重复数据"><span class="post-toc-text">一. 利用伪列和group by删除重复数据.</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#二-查找表中多余的重复记录（多个字段），不包含rowid最小的记录"><span class="post-toc-text">二. 查找表中多余的重复记录（多个字段），不包含rowid最小的记录</span></a></li></ol></li></ol></li></ol>
             </div>
         </div>
     </div>
