@@ -395,7 +395,7 @@ jvm 内存模型划分根据JVM规范，JVM 内存共分为虚拟机栈，堆，
 </li>
 </ol>
 <p>   Java虚拟机栈</p>
-<p>   <img src="/img/JVM/img_1.png" alt="img.png"></p>
+<p>   <img src="/img/JVM/img_1.png" alt="img.png"><br>    java堆:<br>    对于大多数应用来说,java堆(Java Heap)是java虚拟机所管理的内存中最大的一块,java堆是被所有线程共享的一块内存区域,在虚拟机启动时创建,此内存区域的唯一目的<br>就是存放对象实例,几乎所有的对象实例都在这里分配内存.<br>     堆是垃圾收集器管理的主要区域,因此很多时间也被称作”GC堆”(Garbage Collected Heap),从内存回收的角度看,由于现在收集器都采用分代收集算法,所以<br>java堆中还可以细分为: 新生代和老年代,再细致一点的有Eden空间、From Survivor空间、To Survivor空间等，从内存分配的角度来看，线程共享的java堆中可能划分出多个线程私有的分配缓冲区（Thread Local Allocation Buffer Tlab）<br>java堆可以处于物理上不连续的内存空间中，只要逻辑上是连续的即可，当前主流的虚拟机都是按照可扩展来实现的。</p>
 <p>   <strong>未完，待续。。。</strong></p>
 
             </div>

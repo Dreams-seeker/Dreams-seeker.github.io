@@ -480,7 +480,8 @@ String token <span class="token operator">=</span> jwtBuilder<span class="token 
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>token<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>运行打印效果：</p>
-<p>eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiLlsI_nmb0iLCJpYXQiOjE1NTc5MDU4MDIsImV4cCI6MTU1NzkwNjgwMiwicm9sZXMiOiJhZG1pbiJ9.AS5Y2fNCwUzQQxXh_QQWMpaB75YqfuK-2P7VZiCXEJI</p>
+<pre class=" language-bash"><code class="language-bash">eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiLlsI_nmb0iLCJpYXQiOjE1NTc5MDU4MDIsImV4cCI6MTU1NzkwNjgwMiwicm9sZXMiOiJhZG1pbiJ9.AS5Y2fNCwUzQQxXh_QQWMpaB75YqfuK-2P7VZiCXEJI
+</code></pre>
 <p>解析TOKEN:</p>
 <pre class=" language-csharp"><code class="language-csharp">String token <span class="token operator">=</span><span class="token string">"eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4ODgiLCJzdWIiOiLlsI_nmb0iLCJpYXQiOjE1NjIyNTM3NTQsImV4cCI6MTU2MjI1Mzc4Mywicm9sZXMiOiJhZG1pbiJ9.CY6CMembCi3mAkBHS3ivzB5w9uvtZim1HkizRu2gWaI"</span><span class="token punctuation">;</span>
 Claims claims <span class="token operator">=</span> Jwts<span class="token punctuation">.</span><span class="token function">parser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSigningKey</span><span class="token punctuation">(</span> <span class="token string">"hahaha"</span> <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parseClaimsJws</span><span class="token punctuation">(</span> token <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getBody</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
